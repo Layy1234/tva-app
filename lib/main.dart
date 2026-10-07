@@ -109,14 +109,14 @@ Future<void> generateAndPrintPdf(BuildContext context, List<Map<String, dynamic>
 
   if (context.mounted) Navigator.pop(context);
 
-  pdf.addPage(
-    pw.MultiPage(
-      pageFormat: PdfPageFormat.a4,
-      build: (pw.Context context) {
-        List<pw.Widget> elements = [];
-
-        for (int i = 0; i < dataList.length; i++) {
-          final data = dataList[i];
+  for (int i = 0; i < dataList.length; i++) {
+    final data = dataList[i];
+    
+    pdf.addPage(
+      pw.MultiPage(
+        pageFormat: PdfPageFormat.a4,
+        build: (pw.Context context) {
+          List<pw.Widget> elements = [];
           
           List<pw.ImageProvider> pdfImages = [];
           List<String> imagePaths = [];
@@ -177,6 +177,11 @@ Future<void> generateAndPrintPdf(BuildContext context, List<Map<String, dynamic>
                         pw.Row(children: [
                           pw.Expanded(child: pw.Text('PIC:', style: pw.TextStyle(fontWeight: pw.FontWeight.bold, fontSize: 12))),
                           pw.Expanded(flex: 2, child: pw.Text('${data['picName'] ?? '-'}', style: const pw.TextStyle(fontSize: 12))),
+                        ]),
+                        pw.SizedBox(height: 2),
+                        pw.Row(children: [
+                          pw.Expanded(child: pw.Text('No. HP:', style: pw.TextStyle(fontWeight: pw.FontWeight.bold, fontSize: 12))),
+                          pw.Expanded(flex: 2, child: pw.Text('${data['phone'] ?? '-'}', style: const pw.TextStyle(fontSize: 12))),
                         ]),
                         pw.SizedBox(height: 2),
                         pw.Row(children: [
@@ -282,16 +287,11 @@ Future<void> generateAndPrintPdf(BuildContext context, List<Map<String, dynamic>
             );
           }
 
-          if (i < dataList.length - 1) {
-            elements.add(pw.SizedBox(height: 40));
-            elements.add(pw.Divider(color: PdfColors.black, thickness: 2));
-            elements.add(pw.SizedBox(height: 20));
-          }
-        }
-        return elements;
-      },
-    ),
-  );
+          return elements;
+        },
+      ),
+    );
+  }
 
   final now = DateTime.now();
   final List<String> monthNames = [

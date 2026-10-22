@@ -175,7 +175,7 @@ Future<void> generateAndPrintPdf(BuildContext context, List<Map<String, dynamic>
                         ]),
                         pw.SizedBox(height: 2),
                         pw.Row(children: [
-                          pw.Expanded(child: pw.Text('Nama Owner:', style: pw.TextStyle(fontWeight: pw.FontWeight.bold, fontSize: 12))),
+                          pw.Expanded(child: pw.Text('Owner:', style: pw.TextStyle(fontWeight: pw.FontWeight.bold, fontSize: 12))),
                           pw.Expanded(flex: 2, child: pw.Text('${(data['ownerName'] != null && data['ownerName'].toString().trim().isNotEmpty) ? data['ownerName'] : '-'}', style: const pw.TextStyle(fontSize: 12))),
                         ]),
                         pw.SizedBox(height: 2),

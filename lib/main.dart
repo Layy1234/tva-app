@@ -171,22 +171,27 @@ Future<void> generateAndPrintPdf(BuildContext context, List<Map<String, dynamic>
                         pw.SizedBox(height: 4),
                         pw.Row(children: [
                           pw.Expanded(child: pw.Text('Nama Toko:', style: pw.TextStyle(fontWeight: pw.FontWeight.bold, fontSize: 12))),
-                          pw.Expanded(flex: 2, child: pw.Text('${data['storeName'] ?? '-'}', style: const pw.TextStyle(fontSize: 12))),
+                          pw.Expanded(flex: 2, child: pw.Text('${(data['storeName'] != null && data['storeName'].toString().trim().isNotEmpty) ? data['storeName'] : '-'}', style: const pw.TextStyle(fontSize: 12))),
+                        ]),
+                        pw.SizedBox(height: 2),
+                        pw.Row(children: [
+                          pw.Expanded(child: pw.Text('Nama Owner:', style: pw.TextStyle(fontWeight: pw.FontWeight.bold, fontSize: 12))),
+                          pw.Expanded(flex: 2, child: pw.Text('${(data['ownerName'] != null && data['ownerName'].toString().trim().isNotEmpty) ? data['ownerName'] : '-'}', style: const pw.TextStyle(fontSize: 12))),
                         ]),
                         pw.SizedBox(height: 2),
                         pw.Row(children: [
                           pw.Expanded(child: pw.Text('PIC:', style: pw.TextStyle(fontWeight: pw.FontWeight.bold, fontSize: 12))),
-                          pw.Expanded(flex: 2, child: pw.Text('${data['picName'] ?? '-'}', style: const pw.TextStyle(fontSize: 12))),
+                          pw.Expanded(flex: 2, child: pw.Text('${(data['picName'] != null && data['picName'].toString().trim().isNotEmpty) ? data['picName'] : '-'}', style: const pw.TextStyle(fontSize: 12))),
                         ]),
                         pw.SizedBox(height: 2),
                         pw.Row(children: [
                           pw.Expanded(child: pw.Text('No. HP:', style: pw.TextStyle(fontWeight: pw.FontWeight.bold, fontSize: 12))),
-                          pw.Expanded(flex: 2, child: pw.Text('${data['phone'] ?? '-'}', style: const pw.TextStyle(fontSize: 12))),
+                          pw.Expanded(flex: 2, child: pw.Text('${(data['phone'] != null && data['phone'].toString().trim().isNotEmpty) ? data['phone'] : '-'}', style: const pw.TextStyle(fontSize: 12))),
                         ]),
                         pw.SizedBox(height: 2),
                         pw.Row(children: [
                           pw.Expanded(child: pw.Text('Alamat:', style: pw.TextStyle(fontWeight: pw.FontWeight.bold, fontSize: 12))),
-                          pw.Expanded(flex: 2, child: pw.Text('${data['address'] ?? '-'}', style: const pw.TextStyle(fontSize: 12))),
+                          pw.Expanded(flex: 2, child: pw.Text('${(data['address'] != null && data['address'].toString().trim().isNotEmpty) ? data['address'] : '-'}', style: const pw.TextStyle(fontSize: 12))),
                         ]),
                       ],
                     ),
